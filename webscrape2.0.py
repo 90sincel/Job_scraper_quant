@@ -11,22 +11,22 @@ results = soup.find(id='main-content')
 #print(results.prettify())
 job_elems = results.find_all('div', class_='wpjb-job-list wpjb-grid')
 #print(job_elems)
-#for job_elem in job_elems:
-#    trading_jobs = []
-#    title_elem = job_elem.find('a', class_='wpjb-job_title wpjb-title')
-#    type_elem = job_elem.find('span', class_='wpjb-job_type wpjb-sub-title')
-#    company_elem = job_elem.find('span', class_='wpjb-sub wpjb-company_name')
-#    location_elem = job_elem.find('span', class_='wpjb-glyphs wpjb-icon-location')
-#    if None in (title_elem, type_elem, company_elem, location_elem):
-#        continue
-#    elif 'Quant Trading' in title_elem.text.strip():
-#        trading_jobs.append(title_elem.text.strip())
-#    else:
-#        print(title_elem.text.strip())
-#        print(type_elem.text.strip())
-#        print(company_elem.text.strip())
-#        print(location_elem.text.strip())
-#        print(trading_jobs)
+for job_elem in job_elems:
+    trading_jobs = []
+    title_elem = job_elem.find('a', class_='wpjb-job_title wpjb-title')
+    type_elem = job_elem.find('span', class_='wpjb-job_type wpjb-sub-title')
+    company_elem = job_elem.find('span', class_='wpjb-sub wpjb-company_name')
+    location_elem = job_elem.find('span', class_='wpjb-glyphs wpjb-icon-location')
+    if None in (title_elem, type_elem, company_elem, location_elem):
+        continue
+    elif 'Quant Trading' in title_elem.text.strip():
+        trading_jobs.append(title_elem.text.strip())
+    else:
+        print(title_elem.text.strip())
+        print(type_elem.text.strip())
+        print(company_elem.text.strip())
+        print(location_elem.text.strip())
+        print(trading_jobs)
 
 quant_jobs = results.find_all('div', class_='wpjb-category-quantitative-analyst')
 #print(quant_jobs)
